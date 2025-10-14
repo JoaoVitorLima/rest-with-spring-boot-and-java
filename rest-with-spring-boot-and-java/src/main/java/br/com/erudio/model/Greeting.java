@@ -1,4 +1,4 @@
-package br.com.JoaoVitorLima.model;
+package br.com.erudio.model;
 
 public record Greeting(long id, String content) {
 

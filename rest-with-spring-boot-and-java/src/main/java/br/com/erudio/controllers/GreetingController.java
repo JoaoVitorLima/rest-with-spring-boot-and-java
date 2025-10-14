@@ -1,6 +1,6 @@
-package br.com.JoaoVitorLima.controllers;
+package br.com.erudio.controllers;
 
-import br.com.JoaoVitorLima.model.Greeting;
+import br.com.erudio.model.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
