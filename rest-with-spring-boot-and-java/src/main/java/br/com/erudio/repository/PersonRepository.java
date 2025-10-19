@@ -1,4 +1,7 @@
 package br.com.erudio.repository;
 
-public interface PersonRepository {
+import br.com.erudio.model.Person;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PersonRepository extends JpaRepository<Person, Long> {
 }
