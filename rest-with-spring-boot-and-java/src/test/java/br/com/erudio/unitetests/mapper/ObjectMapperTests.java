@@ -1,4 +1,4 @@
-package br.com.erudio.unitetest.mapper;
+package br.com.erudio.unitetests.mapper;
 import static br.com.erudio.mapper.ObjectMapper.parseListObjects;
 import static br.com.erudio.mapper.ObjectMapper.parseObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
