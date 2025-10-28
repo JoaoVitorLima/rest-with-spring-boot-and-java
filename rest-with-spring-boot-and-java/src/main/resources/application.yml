@@ -8,11 +8,13 @@ spring:
     password: admin123
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       hibernate:
     show-sql: false
     open-in-view: false
   logging:
     level:
-      br.com.erudio: DEBUG
+      root: INFO
+      # root: WARN
+      # br.com.erudio: DEBUG
