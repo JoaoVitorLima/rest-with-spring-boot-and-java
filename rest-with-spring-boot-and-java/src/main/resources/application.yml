@@ -18,3 +18,7 @@ spring:
       root: INFO
       # root: WARN
       # br.com.erudio: DEBUG
+      spring-doc:
+        paths-to-match: /api/**/v1/**
+        swagger-ui:
+          user-root-path: true
