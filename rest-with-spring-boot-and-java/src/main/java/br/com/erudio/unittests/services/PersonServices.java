@@ -1,4 +1,4 @@
-package br.com.erudio.services;
+package br.com.erudio.unittests.services;
 
 import br.com.erudio.controllers.PersonController;
 import br.com.erudio.data.dto.v1.PersonDTO;
@@ -20,7 +20,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class PersonServices {
