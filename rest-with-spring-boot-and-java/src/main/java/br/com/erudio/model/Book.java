@@ -17,13 +17,14 @@ public class Book implements Serializable {
     @Column(nullable = false, length = 200)
     private String author;
 
-    @Column(name = "launch_date", nullable = false, length = 6)
+    @Column(name = "launch_date", nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date launchDate;
 
     @Column(nullable = false)
     private Double price;
 
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false, length = 250)
     private String title;
 
     public Book() {

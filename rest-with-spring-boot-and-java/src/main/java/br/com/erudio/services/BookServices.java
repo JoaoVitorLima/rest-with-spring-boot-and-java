@@ -6,7 +6,7 @@ import br.com.erudio.exception.RequiredObjectIsNullException;
 import br.com.erudio.exception.ResourceNotFoundException;
 import br.com.erudio.mapper.custom.BookMapper;
 import br.com.erudio.model.Book;
-import br.com.erudio.repository.BooksRepository;
+import br.com.erudio.repository.BookRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class BookServices {
     private Logger logger = LoggerFactory.getLogger(BookServices.class.getName());
 
     @Autowired
-    BooksRepository repository;
+    BookRepository repository;
 
     @Autowired
     BookMapper converter;
