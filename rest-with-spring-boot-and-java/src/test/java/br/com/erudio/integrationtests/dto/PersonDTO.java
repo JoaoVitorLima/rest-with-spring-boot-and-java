@@ -1,8 +1,13 @@
 package br.com.erudio.integrationtests.dto;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@XmlRootElement(name = "person")  // For JAXB
+@JacksonXmlRootElement(localName = "person")  // For Jackson XML
 public class PersonDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
