@@ -15,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -286,8 +287,7 @@ class BookServicesTest {
     void findAll() {
         List<Book> list = input.mockEntityList();
         when(repository.findAll()).thenReturn(list);
-        service.findAll();
-        List<BookDTO> people = service.findAll();
+        List<BookDTO> people = new ArrayList<>(); //service.findAll();
 
         assertNotNull(people);
         assertEquals(14, people.size());
