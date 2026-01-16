@@ -15,12 +15,12 @@ spring:
       hibernate:
     show-sql: false
     open-in-view: false
-  logging:
-    level:
-      root: INFO
-      # root: WARN
-      # br.com.erudio: DEBUG
-      spring-doc:
-        paths-to-match: /api/**/v1/**
-        swagger-ui:
-          user-root-path: true
+logging:
+  level:
+    root: INFO
+    # root: WARN
+    # br.com.erudio: DEBUG
+spring-doc:
+  paths-to-match: /api/**/v1/**
+  swagger-ui:
+    use-root-path: true
