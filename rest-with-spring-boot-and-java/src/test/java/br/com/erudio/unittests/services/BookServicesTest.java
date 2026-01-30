@@ -1,6 +1,6 @@
 package br.com.erudio.unittests.services;
 
-import br.com.erudio.data.dto.v1.BookDTO;
+import br.com.erudio.data.dto.BookDTO;
 import br.com.erudio.exception.RequiredObjectIsNullException;
 import br.com.erudio.model.Book;
 import br.com.erudio.repository.BookRepository;

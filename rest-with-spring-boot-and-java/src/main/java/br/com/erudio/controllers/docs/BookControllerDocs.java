@@ -1,7 +1,6 @@
 package br.com.erudio.controllers.docs;
 
-import br.com.erudio.data.dto.v1.BookDTO;
-import br.com.erudio.data.dto.v1.PersonDTO;
+import br.com.erudio.data.dto.BookDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 public interface BookControllerDocs {
 

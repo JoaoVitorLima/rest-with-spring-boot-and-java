@@ -1,4 +1,4 @@
-package br.com.erudio.data.dto.v1;
+package br.com.erudio.data.dto;
 
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;

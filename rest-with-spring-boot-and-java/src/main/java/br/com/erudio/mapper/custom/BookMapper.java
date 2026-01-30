@@ -1,6 +1,6 @@
 package br.com.erudio.mapper.custom;
 
-import br.com.erudio.data.dto.v1.BookDTO;
+import br.com.erudio.data.dto.BookDTO;
 import br.com.erudio.model.Book;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package br.com.erudio.unittests.mapper.mocks;
 
-import br.com.erudio.data.dto.v1.BookDTO;
+import br.com.erudio.data.dto.BookDTO;
 import br.com.erudio.model.Book;
 
 import java.util.ArrayList;
