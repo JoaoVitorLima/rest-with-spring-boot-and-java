@@ -1,0 +1,198 @@
+Guidelines for ST interview
+
+
+CS/Java Basics
+* Data structure
+   * List, set, map, hash functions, stack, queue, tree, graphs
+      * What is a List
+      * What is a set
+      * What is a map
+      * What is a stack
+      * What is a queue
+      * What is a tree
+      * What is a graph
+      * Recursion 
+      * L2: Compare a List and a Set and explain on which scenarios one is better than the other
+      * L3: Considering that you want to see if a given anagram was already saw while scanning a vector of 
+words. Which data structure would you use?
+   * Sorting algorithms quick-sort
+* Threading
+   * Mutex, RWMutex, lock, semaphore, atomic, CAS (compare and swap)
+      * What is a Mutex
+      * What is a read-write mutex
+      * What is a lock
+      * What is a semaphore
+      * What is an atomic operation
+      * What is a compare-and-swap operation
+      * L2: Compare a Mutex with a semaphore and explain what are the main differences
+      * L3: Considering that you have a Cache class that is loaded with a lot of data in batches, mostly during 
+the startup of the application and later that cache will be used to read a lot of data. The cache-miss rate is 
+low and after started the cache isn`t update often. Which sync primitive would you use?
+* Java basic data types
+   * String
+      * What is a String. Is it mutable?
+      * L2: what is the difference between
+         * String a = "test";
+         * String b = "test";
+         * String c = new String("test");
+      * L2: What is the difference between String and CharSequence and char[]
+   * StringBuilder vs StringBuffer
+      * What are the uses of either one of those.
+      * L2: what is the difference between those
+   * Integer/int, Long/long, etc.
+      * Boxing/Unboxing
+* Java Data Structures
+   * Different kinds of list,set,map,hash,tree
+      * Point at least one class that implements Map, Set, List, Tree
+      * L2: Difference of a Hashtable, HashMap, TreeMap
+      * L2: Difference LinkedList vs ArrayList
+      * L2: Difference of a HashSet and SortedSet
+      * L3: Explain how a HashMap handles collision or at least propose a way.
+   * Equals and hashCode
+      * What is the difference between them
+      * Difference between equals and ==
+      * L2: What is the main usage of hashCode and equals
+      * L2: What is the contract between equals and hashCode
+* Java OO Basics
+   * Difference between interface and abstract class (pre-Java 8)
+      * Bonus: talk about default methods
+      * Extra bonus: explain why you can have fields on abstract class and interface don't
+   * Java modifiers (explain them)
+      * Protected, package, private, public
+      * volatile, static
+      * "Static constructor"aka class initializer
+      * Default constructor
+      * Final / Finalizers / finally / try/catch
+   * Exceptions
+      * What types exist?
+         * Checked, unchecked (runtime), error
+      * What is a checked exception?
+      * What is an unchecked (runtime) exception?
+      * What is an error
+* Java Threading Basics
+   * Synchronized on class methods
+   * Synchronized on class static methods
+   * Synchronized on instance methods
+   * Synchronized block
+   * Synchronized block with object
+   * ThreadLocal vs static
+      * L2: What is the difference between them.
+   * Thread Pool
+      * L3: Is it bad to have too many Threads? Why? Do the take a lot of memory?
+   * Runnable vs Thread extends
+      * L2: Thread t = new Thread(); t.start(); Is this meaningful?
+   * When to use
+      * List on scenario where Thread can be used.
+   * Object.notify / Object.notifyAll / Object.wait
+   * Yield
+   * Concurrent data structures / Synchronized data structures
+      * ConcurrentQueue, ConcurrentHashMap
+* Java Memory Model
+   * GC generations
+      * Does a GC scan stop the thread?
+      * Stack vs Heap
+      * Recent created objects, where they born
+
+
+synchronized(map) {
+ String a = map.get(1);
+  If (a == null) map.put(1, "a");
+}
+
+
+String a = map.syncGet(1);
+If (a == null) map.syncPut(1, "a");
+
+
+Answer: When the get/put operations need to happen "together" without any other thread changing the given key, 
+you must use a synchronized block locking the map. If the operations don't need to happen "together" (eg. 
+reading writing to a cache which allows for stale data to be consumed).
+
+
+Problem solving
+* Stack with queue
+   * Implement a stack using a queue
+   * Considering that the first item represents either the top of a stack or the front of a queue. Which 
+combination of data structures can generate the following sequence: [1, 2, 3], [3, 2, 1], [3, 2, 1]
+      * Answer: <queue or stack>, <stack>, <queue>
+* Queue with Stack
+   * Implement a queue using a stack
+* Sort very large files with limited memory
+   * Answer 1:
+      * Split the files into smaller chunks that fit into memory
+      * Sort each chunk and write to storage
+      * Store in memory the tuple (firstItem, lastItem) for each chunk
+      * For each chunk take the one with the smallest value
+         * Write the value to the target file
+         * Update the tuple and set (secondItem, lastItem)
+      * Repeat until all chunks are consumed
+* Reverse string
+* Reverse phrase
+* Implement a linked list (insert/delete/search)
+* Anagram
+   * Answer 1:
+      * Create a Map<Key, List<String>>
+      * For each String calculate the Key as follows:
+         * Create a Map<Char, Integer>
+         * For each char from String
+         * Increment 1 to each occurrence of each char
+         * Implement equals/hashCode in way that:
+            * All chars from A exists on B
+            * A and B have the same size
+            * All chars from A have the same count as B
+      * Append the given String under the correct Key
+      * Each entry on the Map will have the list of anagram words
+* Binary tree (depth-first)
+* Fibonacci
+   * Answer 1:
+      * package main
+      *       * func fib_recur(a, b, n int) int {
+      *         if n == 0 {
+      *                 return 0
+      *         }
+      *         println(a)
+      *         n--
+      *         return a + fib_recur(b, a + b, n)
+      * }
+      *       * func fib(n int) {
+      *         fib_recur(1, 1, n)
+      * }
+      *       * func main() {
+      *         fib(5)
+      * }
+* Hanoi towers
+
+
+Microservices
+* REST
+* HTTP verbs
+* Idempotency
+* Monolith vs microservice
+* Status code
+* Exception handling (db offline)
+
+
+Spring-boot / Spring
+* What spring does?
+   * Lifecycle
+* Stereotypes
+   * Configuration
+   * Component
+   * Repository
+   * Service
+   * Controller
+   * RestController
+* Dependency Injection
+* Inversion of control
+* Transactional methods
+* Scopes
+   * Default (singleton)
+   * Prototype
+   * Request
+   * Session
+
+
+Design (only for tech-lead / maybe senior)
+* Propose a problem to be solved
+* Check if the candidate can point the trade-offs
+* Point problems on the design and see how the candidate react
