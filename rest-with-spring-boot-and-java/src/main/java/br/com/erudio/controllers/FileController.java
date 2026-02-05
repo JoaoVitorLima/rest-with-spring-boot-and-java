@@ -70,7 +70,7 @@ public class FileController implements FileControllerDocs {
                 .contentType(MediaType.parseMediaType(contentType))
                 .header(
                         HttpHeaders.CONTENT_DISPOSITION,
-                        "atachment; filename=\"" + resource.getFilename() + "\"")
+                        "attachment; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
     }
 }
