@@ -20,6 +20,7 @@
 		<testcontainers.version>1.20.4</testcontainers.version>
 		<apache.poi.version>5.5.1</apache.poi.version>
 		<commons-csv.version>1.14.1</commons-csv.version>
+		<jasperreports.version>7.0.1</jasperreports.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -58,6 +59,21 @@
             <artifactId>poi-ooxml</artifactId>
             <version>${apache.poi.version}</version>
         </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>${jasperreports.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-fonts</artifactId>
+            <version>${jasperreports.version}</version>
+        </dependency><dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-pdf</artifactId>
+            <version>${jasperreports.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>

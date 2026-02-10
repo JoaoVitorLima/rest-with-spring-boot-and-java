@@ -45,7 +45,7 @@ public class XlsxExporter implements FileExporter {
 
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             workbook.write(outputStream);
-            
+
             return new ByteArrayResource(outputStream.toByteArray());
         }
     }
