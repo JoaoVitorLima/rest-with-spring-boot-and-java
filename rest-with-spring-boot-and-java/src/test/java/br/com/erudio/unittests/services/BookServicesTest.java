@@ -285,7 +285,6 @@ class BookServicesTest {
     }
 
     @Test
-    @Disabled("REASON: Still Under Development")
     void findAll() {
         List<Book> list = input.mockEntityList();
         when(repository.findAll()).thenReturn(list);

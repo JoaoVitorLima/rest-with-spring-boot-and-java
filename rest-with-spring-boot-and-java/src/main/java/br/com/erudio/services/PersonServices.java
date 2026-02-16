@@ -6,8 +6,7 @@ import br.com.erudio.exception.BadRequestlException;
 import br.com.erudio.exception.FileStorageException;
 import br.com.erudio.exception.RequiredObjectIsNullException;
 import br.com.erudio.exception.ResourceNotFoundException;
-import br.com.erudio.file.exporter.MediaTypes;
-import br.com.erudio.file.exporter.contract.FileExporter;
+import br.com.erudio.file.exporter.contract.PersonExporter;
 import br.com.erudio.file.exporter.factory.FileExporterFactory;
 import br.com.erudio.file.importer.contract.FileImporter;
 import br.com.erudio.file.importer.factory.FileImporterFactory;
@@ -67,6 +66,33 @@ public class PersonServices {
         return buildPagedModel(pageable, people);
     }
 
+    public Resource exportPage(Pageable pageable, String acceptHeader) {
+        logger.info("Exporting a People page!");
+
+        var people = repository.findAll(pageable).map(person -> parseObject(person, PersonDTO.class)).getContent();
+
+        try {
+            PersonExporter exporter = this.exporter.getExporter(acceptHeader);
+            return exporter.exportPeople(people);
+        } catch (Exception e) {
+            throw new RuntimeException("Error during file export", e);
+        }
+    }
+
+    public Resource exportPerson(Long id, String acceptHeader) {
+        logger.info("Exporting data of one Person!");
+
+        var person = repository.findById(id)
+                .map(entity -> parseObject(entity, PersonDTO.class))
+                .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+        try {
+            PersonExporter exporter = this.exporter.getExporter(acceptHeader);
+            return exporter.exportPerson(person);
+        } catch (Exception e) {
+            throw new RuntimeException("Error during file export", e);
+        }
+    }
+
     public PersonDTO findById(Long id) {
         logger.info("Finding one Person!");
 
@@ -75,19 +101,6 @@ public class PersonServices {
         var dto = parseObject(entity, PersonDTO.class);
         addHateoasLinks(dto);
         return dto;
-    }
-
-    public Resource exportPage(Pageable pageable, String acceptHeader) {
-        logger.info("Exporting a People page!");
-
-        var people = repository.findAll(pageable).map(person -> parseObject(person, PersonDTO.class)).getContent();
-
-        try {
-            FileExporter exporter = this.exporter.getExporter(acceptHeader);
-            return exporter.exportFile(people);
-        } catch (Exception e) {
-            throw new RuntimeException("Error during file export", e);
-        }
     }
 
     public PersonDTO create(PersonDTO person) {

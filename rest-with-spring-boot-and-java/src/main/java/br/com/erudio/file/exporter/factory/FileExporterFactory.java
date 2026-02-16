@@ -2,7 +2,7 @@ package br.com.erudio.file.exporter.factory;
 
 import br.com.erudio.exception.BadRequestlException;
 import br.com.erudio.file.exporter.MediaTypes;
-import br.com.erudio.file.exporter.contract.FileExporter;
+import br.com.erudio.file.exporter.contract.PersonExporter;
 import br.com.erudio.file.exporter.impl.CsvExporter;
 import br.com.erudio.file.exporter.impl.PdfExporter;
 import br.com.erudio.file.exporter.impl.XlsxExporter;
@@ -20,7 +20,7 @@ public class FileExporterFactory {
     @Autowired
     private ApplicationContext context;
 
-    public FileExporter getExporter(String acceptHeader) throws Exception {
+    public PersonExporter getExporter(String acceptHeader) throws Exception {
         if (acceptHeader.equals(MediaTypes.APPLICATION_XLSX_VALUE)) {
             return context.getBean(XlsxExporter.class);
             //return new XlsxImporter();
