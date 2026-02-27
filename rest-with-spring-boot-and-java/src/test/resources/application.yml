@@ -7,7 +7,9 @@ cors:
 spring:
   file:
     upload-dir: ./UploadDir
-
+  email:
+    subject: "Default Subject"
+    message: "Default Message"
   application:
     name: rest-with-spring-boot-and-java-erudio
 
@@ -25,7 +27,15 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: false
     open-in-view: false
-
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enabled: true
+      mail.smtp.starttls.required: true
   servlet:
     multipart:
       enabled: true
