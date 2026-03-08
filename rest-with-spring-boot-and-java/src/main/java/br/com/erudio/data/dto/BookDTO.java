@@ -9,6 +9,9 @@ import java.util.Objects;
 
 @Relation(collectionRelation = "books")
 public class BookDTO extends RepresentationModel<BookDTO> implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private Long id;
     private String author;
     private Date launchDate;

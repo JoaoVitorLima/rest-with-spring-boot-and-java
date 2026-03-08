@@ -2,7 +2,7 @@ package br.com.erudio.controllers;
 
 import br.com.erudio.controllers.docs.BookControllerDocs;
 import br.com.erudio.data.dto.BookDTO;
-import br.com.erudio.services.BookServices;
+import br.com.erudio.services.BookService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
 public class BookController implements BookControllerDocs {
 
     @Autowired
-    private BookServices service;
+    private BookService service;
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE,
             MediaType.APPLICATION_XML_VALUE,

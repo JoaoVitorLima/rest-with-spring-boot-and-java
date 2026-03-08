@@ -36,9 +36,9 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service
-public class PersonServices {
+public class PersonService {
 
-    private Logger logger = LoggerFactory.getLogger(PersonServices.class.getName());
+    private Logger logger = LoggerFactory.getLogger(PersonService.class.getName());
 
     @Autowired
     PersonRepository repository;

@@ -3,7 +3,7 @@ package br.com.erudio.controllers;
 import br.com.erudio.controllers.docs.PersonControllerDocs;
 import br.com.erudio.data.dto.PersonDTO;
 import br.com.erudio.file.exporter.MediaTypes;
-import br.com.erudio.services.PersonServices;
+import br.com.erudio.services.PersonService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -33,7 +33,7 @@ import java.util.Map;
 public class PersonController implements PersonControllerDocs {
 
     @Autowired
-    private PersonServices service;
+    private PersonService service;
     //private PersonServices service = new PersonServices();
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE,
