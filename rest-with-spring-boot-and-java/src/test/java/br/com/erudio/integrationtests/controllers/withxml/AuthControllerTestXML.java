@@ -1,4 +1,4 @@
-package br.com.erudio.integrationtests.controllers.withjson;
+package br.com.erudio.integrationtests.controllers.withxml;
 
 import br.com.erudio.config.TestConfigs;
 import br.com.erudio.integrationtests.dto.AccountCredentialsDTO;
@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class AuthControllerTest extends AbstractIntegrationTest {
+class AuthControllerTestXML extends AbstractIntegrationTest {
 
     private static TokenDTO tokenDTO;
 
@@ -30,7 +30,7 @@ class AuthControllerTest extends AbstractIntegrationTest {
         tokenDTO = given()
                 .basePath("/auth/signin")
                     .port(TestConfigs.SERVER_PORT)
-                    .contentType(MediaType.APPLICATION_JSON_VALUE)
+                    .contentType(MediaType.APPLICATION_XML_VALUE)
                 .body(credentials)
                     .when()
                 .post()
@@ -50,7 +50,7 @@ class AuthControllerTest extends AbstractIntegrationTest {
         tokenDTO = given()
                 .basePath("/auth/refresh")
                 .port(TestConfigs.SERVER_PORT)
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .contentType(MediaType.APPLICATION_XML_VALUE)
                 .pathParam("username", tokenDTO.getUsername())
                     .header(TestConfigs.HEADER_PARAM_AUTHORIZATION, "Bearer " + tokenDTO.getRefreshToken())
                 .when()
