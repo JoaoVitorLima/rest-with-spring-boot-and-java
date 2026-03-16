@@ -21,6 +21,7 @@ class AuthControllerJsonTest extends AbstractIntegrationTest {
     static void setUp() {
         tokenDTO = new TokenDTO();
     }
+
     @Test
     @Order(1)
     void signin() {

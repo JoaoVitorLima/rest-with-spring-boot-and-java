@@ -32,6 +32,7 @@ class AuthControllerYamlTest extends AbstractIntegrationTest {
 
         tokenDTO = new TokenDTO();
     }
+
     @Test
     @Order(1)
     void signin() throws JsonProcessingException {
