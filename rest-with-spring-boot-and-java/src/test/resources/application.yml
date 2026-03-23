@@ -6,7 +6,7 @@ cors:
 
 spring:
   file:
-    upload-dir: ./UploadDir
+    upload-dir: /home/runner/work/rest-with-spring-boot-and-java/UploadDir
   security:
     jwt:
       token:
